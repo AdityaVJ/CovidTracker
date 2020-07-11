@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -38,11 +37,16 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        checkAndRequestPermissions()
         initKpis()
 
         cases_list.adapter = CasesAdapter(casesList)
 
+        if (checkAndRequestPermissions())
+            getViewModelData()
+
+    }
+
+    private fun getViewModelData() {
         viewModel.getResponseData().observe(this, Observer {
 
             casesList = it.countries?.toMutableList()
@@ -52,7 +56,6 @@ class DashboardActivity : AppCompatActivity() {
             cases_list.adapter?.notifyDataSetChanged()
             getCountry()
         })
-
     }
 
     @SuppressLint("MissingPermission")
@@ -161,6 +164,8 @@ class DashboardActivity : AppCompatActivity() {
                     }
 
                 }
+
+                getViewModelData()
 
             }
 
