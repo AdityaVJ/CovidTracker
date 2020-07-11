@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class ApiResponseModel(
     @Json(name = "Global") val global: GlobalModel?,
-    @Json(name = "Countries") val countries: CountriesModel?,
+    @Json(name = "Countries") val countries: List<CountriesModel>?,
     @Json(name = "Date") val date: String?
 )
 
