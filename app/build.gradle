@@ -63,6 +63,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
+    implementation "com.google.android.gms:play-services-location:17.0.0"
+
     //Moshi
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi_version")

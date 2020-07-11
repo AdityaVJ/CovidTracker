@@ -6,4 +6,9 @@
     <string name="deaths_txt">Deaths</string>
     <string name="recovered_txt">Recovered</string>
 
+    <string name="permission_not_granted_header">Permission error!</string>
+    <string name="permission_not_granted_message">You have not granted the required permissions! The App will now close.</string>
+
+    <string name="option_okay">Okay</string>
+    <string name="option_cancel">Cancel</string>
 </resources>

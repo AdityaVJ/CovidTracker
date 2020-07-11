@@ -1,5 +1,6 @@
 package com.jajodia.covidtracker.adapters
 
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,6 +33,12 @@ class CasesAdapter(private val list: List<CountriesModel>?) :
         holder.itemView.deaths.text = singleItem.totalDeaths
         holder.itemView.recovered.text = singleItem.totalRecovered
 
+        if (position == 0) {
+            holder.itemView.country.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+            holder.itemView.total.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+            holder.itemView.deaths.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+            holder.itemView.recovered.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+        }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

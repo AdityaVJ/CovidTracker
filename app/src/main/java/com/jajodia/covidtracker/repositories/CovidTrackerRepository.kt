@@ -26,13 +26,11 @@ class CovidTrackerRepository {
 
                     if (response.body() != null) {
                         apiResponse.postValue(response.body())
-                        Log.e("Response", response.body().toString())
                     }
                 }
             }
 
             override fun onFailure(call: Call<ApiResponseModel>, t: Throwable) {
-                Log.e("API", t.message.toString())
                 apiResponse.postValue(null)
             }
 
